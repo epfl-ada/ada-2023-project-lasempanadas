@@ -43,14 +43,14 @@ Such regression is used to assess the strength between the fame score and the ge
 
 ## 5. Proposed timeline
 
-- Director and film crew analysis\
-- Improve the fame score computation to make it more realistic\
-- Paired matching for feat analysis\
-- Network analysis\
-- Create career predictors \
-- Datastory and code cleaning and uniformization \ 
-- Code implementation on website \
-- Finalize the report\
+- Director and film crew analysis
+- Improve the fame score computation to make it more realistic
+- Paired matching for feat analysis
+- Network analysis
+- Create career predictors 
+- Datastory and code cleaning and uniformization 
+- Code implementation on website 
+- Finalize the report
 
 
 

@@ -1,21 +1,3 @@
-2765, as the number of stars embedded in the sidewalks along Hollywood Blvd and Vine Street in the heart of Hollywood, Los Angeles California. 
-For artists, these stars symbolize the pinnacle of glory, recognizing their talent and success in the entertainment industry.
-Among all these stars, more than 60% belong to actors who, at some point in their career, portrayed a role that would help them reach an everlasting fame.
-But as shiny as these stars may be, some prominent figures in the industry are still missing from the path of the coveted street. Therefore, despite their undeniable success,  you won’t be able to find Brad Pitt, Leonardo Di Caprio, Al Pacino, Julia Roberts or Angelina Jolie’s stars to lead your way along the Boulevard.
-
-And while the reasons for such absence may remain undisclosed, it still raises the question of what fame truly means. Naturally, fame cannot and will never solely be measured with trophies, glittery stars trampled on, or tags and fan accounts on social media. Fame indeed also illustrates the diversity and richness of an artist journey.  While some might have soared after a single iconic role and stay for the eternity the little boy who played Harry Potter, other have thrived through a diverse array of roles and could be considered as the most versatile performer of their generation, capable of delivering outstanding performances in any situation. 
-
-In the following work you will embark yourself on a journey to unveil how actors fame has varied throughout the years and how actors can stay under the spotlight for a longer period. To interpret data from selected datasets, a fame score must first be computed to depict the complexity of fame through time and the imapct of artists’ interactions and roles in various genres. 
-
-To answer this let’s continue along the following direction: **put the plan here**
-
-Idea of plan: 
-
-1.	How to build our fame score: discovery of the dataset and determination of metrics used in the fame score.
-2.	Fame score function presentation + illustration of its efficiency with some basic visualization and analysis
-3.	The core analysis around the fame score
-4.	Conclusion with an assessment of the results: is the fame score enough precise or how could we improve it to answer our initial question
-
 # A Tale of Acting Careers
 
 

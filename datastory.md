@@ -71,6 +71,42 @@ Our supporting characters are the personas. We'll get introduced to them with th
 
 Now, onto the main character of our story! What we are most interested in understanding, and exploring, is the *fame* of actors. So how can we get to a "fame score"? What can we do to somehow put a numerical value on the popularity of any given actor, on any given year? 
 
+### The Fame Score
+
 The challenge here lies in combining multiple elements of our setting, the situation around what is happening with movies at a certain point, and what actors play in which movies. We also somehow to differentiate actor fame and movie fame, as well as capture the effect of time, as we, the audience, gradually lose interest over time. 
 
-Our answer is grounded in a couple assumptions. Firstly, we conjectured that the number of people that watch your movies is a key part of your intrinsic "fame" at a moment in time. Secondly, we decided to include the average rating of the movies the actors played in as part of a 
+Our answer is grounded in a couple assumptions. 
+- Firstly, we conjectured that the number of people that watch your movies is a key part of your intrinsic "fame" at a moment in time. 
+- Secondly, we decided to include the average rating of the movies the actors played in as part of our fame score, as an effort to capture "popularity". This was based on the idea that the quality of your movie, as evidenced by the public perception of it, also plays an important role in the fame of an actor. 
+- Thirdly, as we saw earlier the box office, and number of movies exploded over time, and more recent actors would be "overweighted" by virtue of movies simply having a much broader reach today. Thus, we added a term inversely proportional to the year the movie was released (minus a constant term to increase the effect), in order to not drown out actors from days of yore. 
+- Fourth, main characters benefit from a movie's success a lot more than supporting actors. For this reason, we have added a "bonus" if the actor played a main character in a given movie to the effect it has on this individual actor's fame. 
+
+These three terms allow us to calculate an "instantaneous" fame score. They allow us to measure the impact that a single movie had on a single actor at a given point in time. However, it is still missing some pieces. Notably, we have not yet considered time. This is the way we reasoned while building our metric:
+
+- We assumed that movies give a large spike to an actor's fame upon release, which then decays exponentially as time goes on. 
+- We also surmised that fame between movies is additive, and that any "residual fame" you have from your previous movies should be added to your "total fame", to get to what we have called your "fame score". 
+
+Here is the fame score in action, for example the score over the career of Leonardo DiCaprio:
+
+<span style="color: red;">fame Score Leonardo DiCaprio over the years</span>
+
+### Some caveats...
+
+The fame score that we have calculated is a great measure of how well the movies an actor has played in have performed, as well as estimating the residual effects of time and the individual contribution the actor has made to the movie. However, in real life a lot of fame is also driven by what happens outside the silver screen. Unfortunately, we did not have time to look into other sources of data which might have included "social" popularity, and including such a metric would have been very difficult to track over the 100 years or so that our current data spans (the way we talk about our favorite actors has changed enormously over this time period). 
+
+However, we believe that our metric is sufficient to be a relatively accurate proxy for actual fame (after all, the bottom line for most actors, as an average, is how good your movies are), as well as being more accurate to proxy the fame within the industry, which is perhaps more relevant to any aspiring actor, and more indicative of whether you are remembered as an icon of cinema or of controversy. 
+
+<span style="color: red;">ajouter d'autres caveats ici par rapport aux personas, ou autre compromis techniques qu'on a du faire</span>
+
+# The Plot
+
+Finally! Let's get into the crux of our story. We'll divide our plot into 4 main arcs: 
+
+1. Understanding the fame score: general trends
+2. Digging deep: Genre analysis
+3. What about networks?
+4. (à garder ou pas) [chapitre sur personas]
+
+# A look back on the main insights
+
+## References

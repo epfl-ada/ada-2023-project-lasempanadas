@@ -9,6 +9,11 @@ mv title.basics.tsv title_basics.tsv
 wget https://datasets.imdbws.com/title.ratings.tsv.gz
 gunzip title.ratings.tsv.gz
 mv title.ratings.tsv title_ratings.tsv
+wget https://datasets.imdbws.com/title.principals.tsv.gz
+gunzip title.principals.tsv.gz
+wget https://datasets.imdbws.com/name.basics.tsv.gz
+gunzip name.basics.tsv.gz
+python ../compute_name_principals.py
 git clone https://github.com/MichelDucartier/ACL_personas_dump.git
 cd ACL_personas_dump/personas
 gunzip 25.100.lda.log.txt.gz

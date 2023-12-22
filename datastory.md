@@ -1,13 +1,12 @@
 # A Tale of Acting Careers
 
+The stories, visuals, and music in movies possess an ethereal quality, transporting us to different worlds and embarking us on emotional adventures, all within a couple of hours. However, behind every blockbuster lies the real essence: the people. These individuals - directors, writers, composers, and especially actors - are the hearts and minds of these artful creations that so profoundly impact us. Naturally, these artists, particularly actors, hold a special place in society, with the very best becoming some of the most recognized faces on the planet.
 
-The world of cinema has long captivated the hearts of many. The stories, visuals, and music in movies has a sort of ethereal quality which transports one to another world and through an adventure of emotions, all in the span of a couple of hours. However, behind every blockbuster, there are very real people, and these people are the hearts and minds of these works of art, which do so much for us. Naturally, these directors, writers, composers, and especially, actors, have a special place in society, and the very best of them are some of the most famous places on the planet. 
+Have you ever wondered about the journeys of acting careers? The paths actors traverse to reach the pinnacle of cinema? We certainly have. Through the lens of data, we aim to unravel what constitutes a great acting career, how success in the film industry can be measured, and if there are strategies aspiring actors can employ to maximize their chances of fame.
 
-Have you ever been curious about the tale of acting careers? What adventures the actors themselves must go through to reach the heights of cinema? Well, we have, and through data, we will attempt to better understand what constitutes a great career, how success in the film industry can be measured, and even if there's anything you, an aspiring actor, can do about it to maximise your chances!
+For this exploration, we needed data. *A lot* of data. TThe cornerstone of our analysis is the CMU Movie Summary Corpus, encompassing over 42,000 movies, sourced from their Wikipedia pages as of 2012. To enhance our analytical capabilities, we also utilized freely available datasets from IMDb. The final piece of our data puzzle was the results of a paper that compiled the *personas* of several thousand characters, representing common character stereotypes.
 
-In order to do this, we needed data. *A lot* of data. The foundation of our data is the CMU Movie Summary Corpus, which collected data from over 42'000 movies, extracted from their Wikipedia page, from 2012. Then, seeing that we could greatly augment our analytical power from using data from the freely available IMDB datasets, we decided to use those too. The final piece of the puzzle for us were the results of the paper this data was collected for, which included the *personas* of several thousands of characters, which correspond to common character stereotypes. 
-
-Together, we will delve into the depths of hollywood, bollywood, and everything in between, to uncover the secrets of not only the stories actors play, but also the actors' stories themselves. Their rise to fame for some, the stories of their networks, and roles, over time!
+Together, we will dive into the realms of Hollywood, Bollywood, and beyond, uncovering not just the narratives actors portray on screen, but also the stories of their careers. We will explore their rise to fame, their networks, and the evolution of their roles over time!
 
 # Let's begin our story by understanding the data...
 
@@ -29,6 +28,7 @@ Then, we turn to the genres. What are the most popular genres of movies through 
 
 <span style="color: red;">Ajouter plotly des genres les plus populaires, pas besoin d'être compliqué.</span>
 
+
 ### (ajouter analyse ici) + parler du nombre de genres (y'a un mec qui a joué 60 genres... c'est quel pourcentage de tous les genres répertoriés par le dataset??)
 
 Next, we will try to understand the average rating, and the number of votes a movie received on the IMDB website. We have below quite a complex graph which tells us a lot, let's break it down together.
@@ -42,6 +42,7 @@ Next, we will try to understand the average rating, and the number of votes a mo
 Quality and reach (ie. the amount of people that see the movie) are linked! Who knew? 
 
 Now that we have set the situation, we can move on to the next step in building our story. 
+
 
 ## The Characters
 
@@ -85,7 +86,7 @@ However, we believe that our metric is sufficient to be a relatively accurate pr
 Finally! Let's get into the crux of our story. We'll divide our plot into 3 arcs: 
 
 1. Understanding the fame score: general trends
-2. Digging deep: genre, persona, and country of origin analysis
+2. Digging deep: career focus and country of origin analysis
 3. What about networks?
 
 Let's get into it!

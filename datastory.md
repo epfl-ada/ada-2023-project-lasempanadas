@@ -6,6 +6,8 @@ Have you ever wondered about the journeys of acting careers? The paths actors tr
 
 For this exploration, we needed data. *A lot* of data. TThe cornerstone of our analysis is the CMU Movie Summary Corpus, encompassing over 42,000 movies, sourced from their Wikipedia pages as of 2012. To enhance our analytical capabilities, we also utilized freely available datasets from IMDb. The final piece of our data puzzle was the results of a paper that compiled the *personas* of several thousand characters, representing common character stereotypes.
 
+In the end, this meant that we ended up with around 45'000 actors, with careers spanning from the early 20th century to 2012. 
+
 Together, we will dive into the realms of Hollywood, Bollywood, and beyond, uncovering not just the narratives actors portray on screen, but also the stories of their careers. We will explore their rise to fame, their networks, and the evolution of their roles over time!
 
 # Let's begin our story by understanding the data...
@@ -28,9 +30,11 @@ The surge in the number of movies is mirrored by a parallel increase in the indu
 
 ### Genre Trends: The Popular Threads of Storytelling
 
+Our dataset has a very varied set of genres. In fact, there are over 350 different genre categories!
+
 <span style="color: red;">Ajouter plotly des genres les plus populaires, pas besoin d'être compliqué.</span>
 
-### (ajouter analyse ici) + parler du nombre de genres (y'a un mec qui a joué 60 genres... c'est quel pourcentage de tous les genres répertoriés par le dataset??)
+### (ajouter analyse ici) + parler du nombre de genres (y'a un mec qui a joué 60 genres...)
 
 ### The IMDb Connection: Ratings and Audience Engagement
 
@@ -48,9 +52,20 @@ With the setting now vividly laid out before us, we are ready to delve deeper in
 
 In our tale, the characters are not just the protagonists of the movies but also the elements of our data that provide crucial insights. Let's introduce these characters, observing their actions and unraveling their secrets as our story unfolds.
 
-### Supporting Characters: The Personas (CHANGER)
+### Supporting Characters: The Personas
 
-<span style="color: red;">tableau avec les persona et les acteurs les plus connus dans cette catégorie (ou autre graphique que vous pouvez trouver intéressant pour introduire les personas...)</span>
+| actor_name    | fameScore | persona | movie_name                               | release_date |
+|---------------|-----------|---------|------------------------------------------|--------------|
+| Gianni Russo  | 179.52    | 41.0    | The Godfather                            | 1972-03-15   |
+| Sofia Coppola | 148.63    | 15.0    | The Godfather Part II                    | 1974-12-12   |
+| Robert Webber | 145.13    | 18.0    | 12 Angry Men                             | 1957-04-10   |
+| Chin Han      | 139.77    | 35.0    | The Dark Knight                          | 2008-07-16   |
+| Hanna R. Hall | 139.07    | 2.0     | Forrest Gump                             | 1994-06-23   |
+| William Alland| 137.29    | 10.0    | Citizen Kane                             | 1941-05-01   |
+| Brigitte Helm | 131.34    | 34.0    | Metropolis                               | 1927-01-10   |
+| Danny Lloyd   | 131.29    | 46.0    | The Shining                              | 1980-05-23   |
+| Sala Baker    | 122.17    | 30.0    | The Lord of the Rings: The Fellowship... | 2001-12-10   |
+| Christopher Lloyd| 119.07 | 17.0    | One Flew Over the Cuckoo's Nest          | 1975-11-19   |
 
 The personas, our supporting characters, play a pivotal role in the narrative. They represent the diverse roles and character stereotypes actors embody. Here, we introduce them with a visualization showing the most renowned actors for each persona. This preliminary glimpse sets the stage for a deeper analysis of their influence.
 
@@ -67,119 +82,158 @@ Crafting the fame score involved synthesizing various elements:
 
 These components culminate in an 'instantaneous' fame score, reflecting the impact of individual movies on an actor's fame at specific points in time. However, to fully capture fame, we must consider its temporal aspect.
 
-- **Fame Over Time:** We envisioned that fame spikes with each movie release, then decays exponentially. By summing the residual fame from past roles, we arrive at the total 'fame score'.
+- **Fame Over Time:** We envisioned that fame spikes with each movie release, then decays exponentially. We tried several ways to define it, and one way which we found compelling was to consider the last big movie that we can remember from this actor. For instance, Daniel Radcliffe was predominantly associated with *Harry Potter* for a considerable period. Under this framework, smaller films that don't significantly enhance an actor's fame beyond the impact of their previous major work (after accounting for decay) are not factored into the fame calculation.
 
 Here's the fame score in action, exemplified by the career trajectory of Leonardo DiCaprio:
 
 <span style="color: red;">fame Score Leonardo DiCaprio over the years, essayer d'avoir des chiffres plus lisibles et plus gros, le minimum d'overlap possible</span>
 
-### Some caveats...
+#### Some caveats...
 
-The fame score that we have calculated is a great measure of how well the movies an actor has played in have performed, as well as estimating the residual effects of time and the individual contribution the actor has made to the movie. However, in real life a lot of fame is also driven by what happens outside the silver screen. Unfortunately, we did not have time to look into other sources of data which might have included "social" popularity, and including such a metric would have been very difficult to track over the 100 years or so that our current data spans (the way we talk about our favorite actors has changed enormously over this time period). 
-
-However, we believe that our metric is sufficient to be a relatively accurate proxy for actual fame (after all, the bottom line for most actors, as an average, is how good your movies are), as well as being more accurate to proxy the fame within the industry, which is perhaps more relevant to any aspiring actor, and more indicative of whether you are remembered as an icon of cinema or of controversy. 
-
-<span style="color: red;">ajouter d'autres caveats ici par rapport aux personas, ou autre compromis techniques qu'on a du faire</span>
-
-#### Caveats of the Fame Score
-While our fame score effectively measures an actor's success in the film industry, it's important to note its limitations. Real-world fame often extends beyond cinematic achievements, influenced by actors' off-screen lives. Our metric focuses on on-screen impact and might not capture the full spectrum of an actor's public image. It's also worth noting that gathering "social data" for the 100+ years of movies and actors we have would be extremely difficult.
+While our fame score effectively measures an actor's success in the film industry, it's important to note its limitations. Real-world fame often extends beyond cinematic achievements, influenced by actors' off-screen lives. Our metric focuses on on-screen impact and might not capture the full spectrum of an actor's public image. It's also worth noting that gathering "social data" for the 100+ years of movies and actors we have would be extremely difficult. 
 
 We believe that our metric is sufficiently accurate for our purposes, as "social" popularity and our fame score are not independent. A sharp increase in an actor's popularity in events outside their movies will have an impact on the next movie this actor plays, and the number of people tuning in (or voting) would be affected as well. 
 
+We were unfortunately unable to get something other than number labels for each persona, and we didn't have time to manually "guess" what each of these clusters referred to. Our analyses were thus focused on non-specific analyses, such as the "persona diversity", which we will see later.
+
 # The Plot
 
-Finally! Let's get into the crux of our story. We'll divide our plot into 3 arcs: 
+Finally, let's get into the crux of our story. We'll divide our plot into four distinct arcs: 
 
 1. Understanding the fame score: general trends
-2. Digging deep: career focus and country of origin analysis
+2. Digging deep: career focus analysis
+3. The influence of country of origin
 3. What about networks?
 
 Let's get into it!
 
 ## Arc 1. Understanding the fame score: general trends
 
-As a first step toward understanding, let's first look at some general trends we could observe with our fame score metric. Let's go through different angles to try and understand what is going on. 
+In our quest to decipher the nuances of the fame score, we first explore general trends, examining the data from different perspectives to gain a holistic understanding.
 
-### Diversity
+### The Impact of Diversity on Fame
 
-We first focused on trends in diversity. Does gender and ethnicity play a role in fame? Let's first have a look at the average "fame ratio" between male and female actors over time:
+#### Gender Dynamics
 
 <span style="color: red;">average fame ratio of genders</span>
 
-Perhaps we should be talking about a gender "fame gap"! It turns out male actors are on average more famous than female actors, which may not be surprising given the inequalities in the industry (main characters are predominantly male, for example, which may at least partly explain the difference). However, what is (somewhat) surprising is the lack of progress over time, and even though socially women have been given many more rights over the past century, this has not had a meaningful impact on the fame of actresses. Males have on average been around 20-30% more famous than women for the past 100 years, with relentless consistency. 
+Our analysis reveals a persistent "fame gap" between male and female actors. Despite societal progress in gender equality, this disparity remains evident in the industry, with male actors consistently holding a 20-30% edge in fame over the last century. The predominance of male main characters might partly explain this enduring gap.
 
-Next, let's look at ethnicities:
+#### Ethnicity 
 
 <span style="color: red;">average fame by ethnicity</span>
 
-From the above plot we can see some interesting trends:
-- It seems that asian/middle eastern actors had a peak in popularity in the 1920's, and a second one in the 40's. This could be due to a local surge in Bollywood, a really famous movie, or it could simply be that the wars in Europe led to a skew toward popularity in India, which was less affected (on average) than Europe. It also seems that their relative popularity has waned over time, since. 
-- All other ethnic groups have seen a marked increase since the early 20th century, and are today relatively equal, which could be somewhat surprising when contrasted to the earlier result.
+Ethnic trends in fame showcase intriguing patterns:
+- Asian/Middle Eastern actors experienced peaks in the 1920s and 1940s, possibly influenced by Bollywood's rise or wartime shifts in cinematic focus.
+- Other ethnic groups have seen a gradual increase in fame, with a notable convergence in recent times, where it seems ethnic disparities are disappearing.
 
-### Does longevity matter?
+### Longevity and Fame: A Complex Relationship
 
-Is a longer career synonymous with more success? Our intuition could guess yes, but the reality is much different. We have conducted a short analysis to better understand how many years an actor needs to reach their "fame peak", as well as fame as a function of actor longevity, in order to tackle this issue. 
-
-First, we looked at the distribution of "years it took for actors to reach their maximum fame score":
-
-<span style="color: red;">metter le graphique de how many years ... mais changer le titre à un truc plus simple pour pas répéter texte. Peut-etre essayer de faire "toggle" par tranche de fame score plutot que de dupliquer le graphe. Essayer log x pour voir si c'est plus lisible.</span>
-
-
-<span style="color: red;">Pour valider ca faudrait regarder la distribution de films que les acteurs font tout court. Si à peu près normale, alors ok, mais si power law alors on doit tej cette analyse. Faudrait aussi calculer le median ca pourrait etre interessant. Peut-être redondant avec celui d'après aussi</span>
-
-We noticed that this seemed to follow some sort of power law, suggesting that actually, most actors hit their peak very early on in their careers. This may suggest that it is harder to break through in later years. We decided to control for the fame of the actors; perhaps it was only superstars who contributed to this number, or on the contrary, only the actors who never got their career going?
-
-Another way to look at this data is to consider the following plot, which calculates the average fame score as a function of longevity:
+#### Fame Score versus Career Longevity
 
 <span style="color: red;">Mettre plot ".. since first movie", changer titre à un truc du style "Fame and longevity", x axis à "longevity". Tej la légende à droite.</span>
 
-As we can clearly see from the above plot, after about 13-15 years, the fame score generally does not increase anymore(even decreases if you look at the top performers, denoted by the <span style="color: red;">top extremities (j'ai oublié le mot)</span>). This graph also helped uncover the fun fact that some actors actually had a career spanning 80+ years, with a single one spanning 89 years! The actor in question is Milton Berle, born in 1908. A movie featuring a character played by him was released in 2003, one year after his death in 2002. Nevertheless, a hugely impressive longevity which is completely unmatched. 
+The relationship between fame and career length reveals a plateau after approximately 13-15 years. This graph also helped uncover the fun fact that some actors actually had a career spanning 80+ years, with a single one spanning 89 years! The actor in question is Milton Berle, born in 1908. A movie featuring a character played by him was released in 2003, one year after his death in 2002. Nevertheless, a hugely impressive longevity which is completely unmatched. 
 
-...and here concludes arc 1, the first wave of insights. Here, we learnt about historical trends in fame, diversity, and longevity. Let's use our newfound understanding to dig deeper, and find out where our analysis of the fame score will lead us next...
+### Concluding Insights of Arc 1
 
-## Arc 2. Digging deep: career focus, and country of origin analysis
+This first arc sheds light on historical trends in fame, the impact of diversity on success, and the complex interplay between fame and longevity. With these insights in hand, we are now poised to delve deeper into the nuances of the fame score and its implications in the next arc of our story.
 
-### Career focus: does it pay to be an adventurer?
+## Arc 2. Digging Deep: Career Focus Analysis
 
-As the next step in our journey of discovery, we decided to enter into the wild world of genres. Such diversity to explore! And yet, maybe there is such a thing as being too adventurous in cinema? 
+### Exploring the Terrain of Career Diversity
 
-Let's not get ahead of ourselves. let's first define a couple terms that we will later use without further explanation:
-- Genre diversity refers to the number of genres an actor has played over his or her career. In the case of movies having multiple genres, we will keep the 3 main genres, so as to correctly capture "romantic dramas" or other multi-genre movies. 
-- Movie diversity, which refers to the number of movies that an actor has played over his or her career. 
-- (?) Persona diversity, referring to the number of different personas an actor has played over his or her career... you get the idea.
+In our continued exploration, we navigate the diverse landscape of cinema. Is there merit in versatility, or does specialization pave the path to fame? Let's delve into these questions.
 
-### Genre focus (REWORD FOCUS SECTIONS)
+#### Defining Our Terms
+- **Genre Diversity:** The range of genres an actor has explored in their career. For multi-genre movies, we consider the top three genres to accurately represent films like "rom-coms."
+- **Movie Diversity:** The total number of movies an actor has been a part of.
+- **Persona Diversity:** The variety of different character types an actor has portrayed. 
 
-So, the results! Well, it turns out that being a "genreventurer" (having high genre diversity!) is not a terrible idea for actors! Below is a plot of the main fame score, as a function of genre diversity. 
+#### Genre Versatility: A Path to Fame?
 
-<span style="color: red;">fame score/genre div from genre_analysis.ipynb. Rajouter titre, et peut-etre regarder le nom de l'acteur qui a joué 60 ptn de genres différents et qui est connu... peut-etre ajouter des confidence intervals comme simon?</span>
+<span style="color: red;">fame score/genre div from genre_analysis.ipynb. Rajouter titre, peut-etre ajouter des confidence intervals comme simon?</span>
 
-As we can see, the above analysis seems to suggest that it is generally a pretty good idea to wander around, and not just stick to playing in your favorite rom-coms. In fact, in what may seem pretty surprising, median fame scores increase until a genre diversity of around 30! (Yes, we also had to double check this). There is even an actor, the most adventurous of us all, who has played in movies with 60 (!) different genres!
-### Movie focus
+Somewhat surprisingly, our data seems to indicate that being a "genreventurer" correlates positively with fame! The median fame score seems to peak at a genre diversity of around 30. This suggests that actors benefit from branching out into various genres, seemingly challenging the notion of sticking to a single type of role. There is even an actor, <span style="color: red;">get actor name who played 60 genres</span>, the most adventurous of us all, who has played in movies with over 60 different genres! That means that he has played in over 1/6th of all recorded genres in our dataset (which as a reminder spans over 100 years and includes several tens of thousands of movies!).
 
-The news for the super-duper-motivated actors among you is also less exciting. Unfortunately, when it comes to movie diversity, it pays to play it simple. Here is a plot of the median fame score, with respect to the movie diversity:
+#### Movie Diversity: Quality Over Quantity?
 
 <span style="color: red;">fame score/movie div from genre_analysis.ipynb. Rajouter titre. peut-etre ajouter des confidence intervals comme simon</span>
 
-It seems like being a "movieventurer" is not a great idea. While we may get good results initially, it seems like playing too many films takes away from our fame. Taking a look back at how we defined the fame score, this could be due to average ratings becoming lower as quantity takes over quality, or perhaps smaller scale movies, which will get less traction, take less time to produce on average. This decline is steep, even despite our model rewarding a higher volume of films! (As it is an additive model)
+Contrary to gerne diversity, it seems like being a "movieventurer" is not a great idea. While we may get good results initially, it appears that an increase in movie diversity has diminsihing returns on fame. This could be attributed to the compromise between quantity and quality or the involvement in smaller-scale projects with limited reach. 
 
-### Isn't there a contradiction somewhere?
-
-You may be right. However, we believe otherwise. The below graph, which plots the genre diversity and median fame score, looking only at groups with the same movie diversity, paints a slightly different story, which somehow blends the two above observations into a single insight. 
+#### Reconciling Genre and Movie Diversity
 
 <span style="color: red;">mettre deuxième graphique plotly d'alex ici, avec genre diversity en x axis</span>
 
-Indeed, it seems that for any given movie diversity, it generally is better to have a relatively low genre diversity. This blends both above insights together: it may indeed be better to play less movies, but it also seems that playing more movies within a certain niche is good for your career! We can see from the evolution of this data that fame does tend to increase as movie diversity increases, but most of the increase is in the lower end of genre diversity. Logically speaking, this could be because having a lower ratio of genres over movies played means that you can better establish yourself within this niche and thus can can get hired for bigger films within the same industry, which will perform better and thus boost your fame. 
+When isolating movie diversity, a very interesting pattern emerges: actors who focus on fewer genres within their filmography tend to have higher fame scores. This suggests that establishing a niche and excelling within it, and thus being possibly hired for movies with more prestige, budget, or more famous colleagues, can be more beneficial than a scattershot approach across many genres. 
 
-### Persona focus
+### Persona focus (changer titre)
 
 <span style="color: red;">insert persona analysis here</span>
 
-### Country of origin
+Persona 
 
-<span style="color: red;">(Ajouter texte si analyse d'alex)</span>
+## Arc 3. The influence of country of origin
 
-## Arc 3. What about networks?
+In this arc of our analysis, we examine the impact of a movie's country of origin on the fame of its actors. Our focus is on the top five countries in terms of movie production:
+
+<table class="tg" style="undefined;table-layout: fixed; width: 500px">
+<colgroup>
+<col style="width: 164px">
+<col style="width: 178px">
+</colgroup>
+<thead>
+  <tr>
+    <th class="tg-0lax">Country</th>
+    <th class="tg-0lax"># of movies</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">United States of America</td>
+    <td class="tg-0lax">141'183</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">India</td>
+    <td class="tg-0lax">21'840</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">United Kingdom</td>
+    <td class="tg-0lax">12'908</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">France</td>
+    <td class="tg-0lax">9'663</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Japan</td>
+    <td class="tg-0lax">4'797</td>
+  </tr>
+</tbody>
+</table>
+
+### Median Fame Score by Country
+
+<span style="color: red;">plot fame score by country over time country analysis, le tout dernier seulement sur 30 ans</span>
+
+In the last 30 years, somewhat unsurprisingly, American actors consistently exhibit the highest median fame scores. A notable exception is India, where actors' fame scores are significantly lower compared to their American counterparts, nearly six times less. This discrepancy could stem from IMDb's Western-centric data representation, potentially underrepresenting Bollywood's significant presence. Alternatively, it might reflect cultural differences in movie rating behaviors between Indian and Western audiences.
+
+### Ethnicity and Country of Production: A Chi-Square Analysis
+
+<span style="color: red;">[Insert contingency table from Chi-Square test results.]</span>
+
+The Chi-Square test results reveal a strong correlation between actor ethnicity and the country of production. The majority of Asian actors are cast in Indian films, while American films display greater ethnic diversity. This finding highlights the regionalized nature of casting preferences and possibly indicates varying degrees of inclusivity in different film industries.
+
+### Historical Fame Trends Across Countries
+
+<span style="color: red;">[Insert plot of median fame score by country across the entire dataset.]</span>
+
+This historical perspective unveils unique 'golden ages' in cinema. Japanese actors, for instance, reached peak fame during the early phases of its "Japanese economic miracle," reflecting the country's booming post-war economy. The 1920s marked a high point for Indian actors, while French cinema shows a notable decline over time. However, caution is warranted when interpreting older data due to its relative scarcity and potential inaccuracies.
+
+As we conclude this arc, we're reminded of cinema's dynamic nature and its reflection of broader social and economic landscapes. These findings illustrate how fame in the film industry is not only a result of individual talent and effort but also deeply influenced by the cultural, historical, and economic context of each country.
+
+## Arc 4. What about networks?
 
 As we have been strolling through our dataset, we have looked at a lot of different metrics, and we have explored a lot of different angles. However, there is one thing that we have thus far not mentioned, which is absolutely key to understanding careers, and fame: people! So far, all of our analyses have been network-agnostic, but we know this is not how the real world works. Our next, and final arc, will bring us through many hardships, as the plots can get pretty gnarly over there! However, we think that will also teach us a whole lot, and could be one of the keys to unlocking the secrets to fame!
 
@@ -191,7 +245,7 @@ Our first order of business is to get a good idea of what the situation is. What
 
 <span style="color: red;">network by language plot de remi. Idealement ajouter les autres components non connectés pour montrer les distributions de tout notre dataset, et de pouvoir en dire plus</span>
 
-We loved this graph, as it quite clearly shows that the cinema industry, for better or for worst, is very segregated between countries. There is very little collaboration between Hollywood and Bollywood, as evidenced by the *very few* weak links between the two communities, but there is actually no collaboration between either of these two giants and <span style="color: red;">studios in other languages such as french or german</span>!
+We loved this graph, as it quite clearly shows that the cinema industry, for better or for worst, is very segregated between languages. There is very little collaboration between what is most likely Hollywood and Bollywood, as evidenced by the very few weak links between the two communities.
 
 As a next step, we are very interested in looking at centrality. Due to the nature of our network, the centrality would be very heavily biased toward those weak links between Hollywood and Bollywood, which would also hold no guarantees with respect to their fame. <span style="color: red;">ajouter analyse des weak links?</span>
 
@@ -205,7 +259,7 @@ Having confirmed that the weak links between Hollywood and Bollywood are not nec
 
 ### Who are the most famous actors in history?
 
-Now that we better understand the tales of acting careers, let's take a look back. A look back at all the previous actors, and let's see which of them were the most famous, the true icons of their time. Below is the evolution of the top 10 most famous actors through the ages. Enjoy!
+Now that we better understand the tales of acting careers, let's take a look back. A look back at all the previous actors, and let's see which of them were the most famous, the true icons of their time. Below is the evolution of the top 10 most famous actors through the ages.
 
 <span style="color: red;">Ajouter raceplot de simon, mais changer (si possible): les barres bougent physiquement et pas juste les couleurs, pour voir la diff entre les années plus facilement. si possible, mettre les noms à gauche des barres pour pas qu'ils bougent tout le temps.</span>
 

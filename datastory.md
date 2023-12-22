@@ -10,66 +10,66 @@ Together, we will dive into the realms of Hollywood, Bollywood, and beyond, unco
 
 # Let's begin our story by understanding the data...
 
-## The Setting
+## The Setting: Historical Trends in Cinema
 
-Our data, after extensive cleaning, and merging, contains a wide array of information. Let's understand what the data is telling us, the situation, before rushing into the plot. 
+Let's begin by immersing ourselves in the evolution of cinema. Our data, meticulously cleaned and merged, offers a panoramic view of the film industry's growth and transformation over the years. Before diving into the narrative, let's first grasp the landscape that our data reveals. 
 
-Our first question is historical. How many movies do we have for each time period? How has the volume of cinema evolved over time? 
+### The Rise of Cinema: A Journey Through Time
 
 <span style="color: red;">Ajouter plot du nombre de films par année avec notre data final.</span>
 
-The number of movies increases dramatically with time! Cinema has become more and more popular, and we now see more than <span style="color: red;">10x</span> the number of movies per year, as compared to the early 20th century. 
+From silent films to modern blockbusters, cinema has witnessed an extraordinary rise in both the number and diversity of movies. Our graph vividly illustrates this ascent, highlighting more than a tenfold increase in annual movie production since the early 20th century. This growth not only signifies the rising popularity of cinema but also its evolution as an art form and a business.
 
-This increase in the number of movies has also seen a dramatic increase in the amount of money in the industry over time, as we can see from the below inflation-adjusted box office numbers below. 
+### The Financial Picture: Box Office Evolution
 
 <span style="color: red;">average inflation-adjusted box office par année, très simple</span>
 
-Then, we turn to the genres. What are the most popular genres of movies through the ages? How many are present in our data?
+The surge in the number of movies is mirrored by a parallel increase in the industry's financial inflow. The inflation-adjusted box office revenue chart illustrates the escalating economic stakes in cinema, showcasing its journey from modest beginnings to a lucrative global industry.
+
+### Genre Trends: The Popular Threads of Storytelling
 
 <span style="color: red;">Ajouter plotly des genres les plus populaires, pas besoin d'être compliqué.</span>
 
-
 ### (ajouter analyse ici) + parler du nombre de genres (y'a un mec qui a joué 60 genres... c'est quel pourcentage de tous les genres répertoriés par le dataset??)
 
-Next, we will try to understand the average rating, and the number of votes a movie received on the IMDB website. We have below quite a complex graph which tells us a lot, let's break it down together.
+### The IMDb Connection: Ratings and Audience Engagement
 
 <span style="color: red;">Adjusted Box-Office, with respect to Number of Votes and Average Rating, celui de sim est carré</span>
 
-- First, we can notice that the box office and quantity of movies increases dramatically, especially in the last 50 years, as we have previously mentioned. 
-- Then, we can observe a clear increase in the number of votes in the top right corner, meaning that as box office and average rating increase, our number of votes also tends to increase. 
-- Movies with a low rating also tend to have lower box offices, and a low number of votes. 
+- A striking trend in the past 50 years is the robust growth in both the number of movies and their box office revenues, affirming the rising prominence of cinema.
+- There's a discernible increase in audience engagement, as evidenced by a higher number of votes correlating with increased box office and ratings. This trend suggests that more successful films not only earn more but also resonate more with viewers.
+- Interestingly, films with lower ratings often see diminished box office returns and fewer votes, underscoring a link between a movie's quality, reach, and financial success.
 
-Quality and reach (ie. the amount of people that see the movie) are linked! Who knew? 
+The relationship between a film's quality and its reach is both intriguing and informative. It seems that the more a movie appeals to its audience, the more successful it becomes both critically and commercially.
 
-Now that we have set the situation, we can move on to the next step in building our story. 
-
+With the setting now vividly laid out before us, we are ready to delve deeper into the story of cinema and acting careers.
 
 ## The Characters
 
-So, the characters! What the main characters that we will follow throughout our tale, seeing their every move and understanding, little by little, what they are hiding?
+In our tale, the characters are not just the protagonists of the movies but also the elements of our data that provide crucial insights. Let's introduce these characters, observing their actions and unraveling their secrets as our story unfolds.
 
-Our supporting characters are the personas <span style="color: red;">delete si on utilise pas</span>. We'll get introduced to them with the below plot, which shows the most famous actors in each character trope. Don't worry, we'll soon get to how this "fame" is calculated...
+### Supporting Characters: The Personas (CHANGER)
 
 <span style="color: red;">tableau avec les persona et les acteurs les plus connus dans cette catégorie (ou autre graphique que vous pouvez trouver intéressant pour introduire les personas...)</span>
 
-Now, onto the main character of our story! What we are most interested in understanding, and exploring, is the *fame* of actors. So how can we get to a "fame score"? What can we do to somehow put a numerical value on the popularity of any given actor, on any given year? 
+The personas, our supporting characters, play a pivotal role in the narrative. They represent the diverse roles and character stereotypes actors embody. Here, we introduce them with a visualization showing the most renowned actors for each persona. This preliminary glimpse sets the stage for a deeper analysis of their influence.
 
-### The Fame Score
+### The Main Character: The Fame of Actors
+The central theme of our story is the *fame* of actors. But how do we quantify such an intangible concept? How can we assign a numerical value to an actor's popularity at any given point in their career?
 
-The challenge here lies in combining multiple elements of our setting, the situation around what is happening with movies at a certain point, and what actors play in which movies. We also somehow to differentiate actor fame and movie fame, as well as capture the effect of time, as we, the audience, gradually lose interest over time. 
+#### The Fame Score: A Quantitative Measure of Popularity
+Crafting the fame score involved synthesizing various elements:
 
-Our answer is grounded in a couple assumptions. 
-- Firstly, we conjectured that the number of people that watch your movies is a key part of your intrinsic "fame" at a moment in time. 
-- Secondly, we decided to include the average rating of the movies the actors played in as part of our fame score, as an effort to capture "popularity". This was based on the idea that the quality of your movie, as evidenced by the public perception of it, also plays an important role in the fame of an actor. 
-- Thirdly, as we saw earlier the box office, and number of movies exploded over time, and more recent actors would be "overweighted" by virtue of movies simply having a much broader reach today. Thus, we added a term inversely proportional to the year the movie was released (minus a constant term to increase the effect), in order to not drown out actors from days of yore. 
-- Fourth, main characters benefit from a movie's success a lot more than supporting actors. For this reason, we have added a "bonus" if the actor played a main character in a given movie to the effect it has on this individual actor's fame. 
+- **Viewer Reach:** We conjectured that the number of people watching an actor's movies is a critical component of their 'fame' at any moment.
+- **Public Perception:** The average rating of the movies an actor has appeared in is incorporated to reflect their 'popularity,' tying fame to the perceived quality of their work.
+- **Temporal Adjustment:** To account for the explosive growth in cinema's reach over time, we introduced a factor inversely proportional to the movie's release year, ensuring historical actors aren't overshadowed.
+- **Role Significance:** Recognizing that leading roles contribute more to an actor's fame than supporting roles, we added a 'bonus' for main characters.
 
-These three terms allow us to calculate an "instantaneous" fame score. They allow us to measure the impact that a single movie had on a single actor at a given point in time. However, it is still missing some pieces. Notably, we have not yet considered time. This is the way we reasoned while building our metric:
+These components culminate in an 'instantaneous' fame score, reflecting the impact of individual movies on an actor's fame at specific points in time. However, to fully capture fame, we must consider its temporal aspect.
 
-- We assumed that movies give a large spike to an actor's fame upon release, which then decays exponentially as time goes on. 
-- We also surmised that fame between movies is additive, and that any "residual fame" you have from your previous movies should be added to your "total fame", to get to what we have called your "fame score". 
+- **Fame Over Time:** We envisioned that fame spikes with each movie release, then decays exponentially. By summing the residual fame from past roles, we arrive at the total 'fame score'.
 
-Here is the fame score in action, for example the score over the career of Leonardo DiCaprio:
+Here's the fame score in action, exemplified by the career trajectory of Leonardo DiCaprio:
 
 <span style="color: red;">fame Score Leonardo DiCaprio over the years, essayer d'avoir des chiffres plus lisibles et plus gros, le minimum d'overlap possible</span>
 
@@ -80,6 +80,11 @@ The fame score that we have calculated is a great measure of how well the movies
 However, we believe that our metric is sufficient to be a relatively accurate proxy for actual fame (after all, the bottom line for most actors, as an average, is how good your movies are), as well as being more accurate to proxy the fame within the industry, which is perhaps more relevant to any aspiring actor, and more indicative of whether you are remembered as an icon of cinema or of controversy. 
 
 <span style="color: red;">ajouter d'autres caveats ici par rapport aux personas, ou autre compromis techniques qu'on a du faire</span>
+
+#### Caveats of the Fame Score
+While our fame score effectively measures an actor's success in the film industry, it's important to note its limitations. Real-world fame often extends beyond cinematic achievements, influenced by actors' off-screen lives. Our metric focuses on on-screen impact and might not capture the full spectrum of an actor's public image. It's also worth noting that gathering "social data" for the 100+ years of movies and actors we have would be extremely difficult.
+
+We believe that our metric is sufficiently accurate for our purposes, as "social" popularity and our fame score are not independent. A sharp increase in an actor's popularity in events outside their movies will have an impact on the next movie this actor plays, and the number of people tuning in (or voting) would be affected as well. 
 
 # The Plot
 

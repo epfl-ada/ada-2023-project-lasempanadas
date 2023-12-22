@@ -38,8 +38,6 @@ As the data reveals, Drama, Comedy, Romance, and Action Thrillers dominate the c
 
 An interesting observation is the significant presence of black-and-white movies within the dataset. This not only highlights the historical depth of our data but also provides a window into the evolution of the film medium. This genre analysis paints a vivid picture of the film industry's trends and shifts over the years. It underscores the dynamic nature of cinematic preferences and the industry's response to evolving tastes and societal changes.
 
-### (ajouter analyse ici) + parler du nombre de genres (y'a un mec qui a joué 60 genres...)
-
 ### The IMDb Connection: Ratings and Audience Engagement
 
 <span style="color: red;">Adjusted Box-Office, with respect to Number of Votes and Average Rating, celui de sim est carré</span>
@@ -160,7 +158,7 @@ In our continued exploration, we navigate the diverse landscape of cinema. Is th
 
 <span style="color: red;">fame score/genre div from genre_analysis.ipynb. Rajouter titre, peut-etre ajouter des confidence intervals comme simon?</span>
 
-Somewhat surprisingly, our data seems to indicate that being a "genreventurer" correlates positively with fame! The median fame score seems to peak at a genre diversity of around 30. This suggests that actors benefit from branching out into various genres, seemingly challenging the notion of sticking to a single type of role. There is even an actor, <span style="color: red;">get actor name who played 60 genres</span>, the most adventurous of us all, who has played in movies with over 60 different genres! That means that he has played in over 1/6th of all recorded genres in our dataset (which as a reminder spans over 100 years and includes several tens of thousands of movies!).
+Somewhat surprisingly, our data seems to indicate that being a "genreventurer" correlates positively with fame! The median fame score seems to peak at a genre diversity of around 30. This suggests that actors benefit from branching out into various genres, seemingly challenging the notion of sticking to a single type of role. There is even an actor, the most adventurous of us all, who has played in movies with over 60 different genres! That means that he has played in over 1/6th of all recorded genres in our dataset (which as a reminder spans over 100 years and includes several tens of thousands of movies!).
 
 ### Movie Diversity: Quality Over Quantity?
 
@@ -267,45 +265,35 @@ Let's quickly get into it, jumping straight into our first topic: featurings wit
 
 Our first order of business is to get a good idea of what the situation is. What is this strange new world that we're setting foot in? The first approach that we tried was to look at the connections between actors (a link being defined as a movie played together):
 The effect, we would like to show light on is wether featuring with a famous actor improves your own fame or not. This is an information of high value for any actro in need of recognition ! The easy approach simply consist of finding the 100 most famous actors for each year and split all our featuring connection in two groups. The first group -control features in films with lesser known actors than the second one -treated. We observe that the treated group has a fame increase of in average 5 times the one of the control group, which is huge. This effect is statistically significant as it is backed by a t-test giving a p-value of 0. You might think that this is enough for an actor but we will dig deeper in the data as matching should be performed to ensure a real effect and the absense of confounder effect under the naive model. Actors may be releived to hear that after matching, the effect is still present yet less strong, but more importantly statistically significant with a p-value of 7e-10.
+
 <span style="color: red;">graph feats after matching</span>
 
 Then, we may look at feats from another point of view. That is network analysis, opening a whole new world of possibilities. We construct a network consisting of actors as nodes and films as edges. The main component of the graph is strangely composed of two main clusters. Our initial thought are that these represent two worlds of cinema : Hollywood and Bollywood. Indeed, seeing the following figure, we observe that actors whose languages are spoken in India constitutes the smaller cluster while English speaking actors are in the other cluster with some French speaking ones far from home. 
+
 <span style="color: red;">network by language plot de remi. Idealement ajouter les autres components non connectés pour montrer les distributions de tout notre dataset, et de pouvoir en dire plus</span>
 
 This separation in the network poses a problem as for computing centralities, actors bonding Bollywood and Hollywood will be assigned the highest centralities, especially betweenness centrality. As we cannot ensure that such actors are famous but instead are well placed in the network,  we solve this issue by restricting ourselves to Hollywood with only English speaking actors.
+
 <span style="color: red;">graph betweeness bolly holly</span>
 
 Then we compute the betweenness, Katz and closeness centralities of actors in Hollywood. No surprise, famus actors such as Robert De Niro, Morgan Freeman, Matt Damon, Christopher Walken, etc are assigned the highest centralities. This might suggest a correlation between fame and centrality, which intuitivey makes quite some sense. Yet, performing a correlation analysis between fames and centralities in the correlation matrix hereunder, it seems that fame is not especially linked with centrality. 
+
 <span style="color: red;">correlation matrix fame centrality</span>
 
 It could be then that even Hollywood is composed of communities where actors bonding such may have bigger centralities. Using the Louvain method, which groups together nodes so as to maximize cluster coefficients for nodes, we may extract several communities. Those communities are linked by weak ties as shown in the subsequent figure. Some Louvain communities do share many connections, yet others do not seem to make film with many other communities. This is becoming interesting for any actor willing to join one as they might not share the same fame distribution, some may me composed of established actors while other be carreer boosters. The communities seem well formed as the cast of Harry Potter saga are all in the same community.
+
 <span style="color: red;">louvain weak ties</span>
 
 The following plots show that communities do not all share the same average of fame score. Indeed some are composed of more famous actors while others seem less interesting for an unknown actor willing to increase its fame fast. This bar analysis with confidence intervals is backed by oneway ANOVA testing where we test if the mean of fame and fame increase are the same for each Louvain community. Using such method, it turns out that fames in communities do not share the same means. Thus, an already somewhat famous actor probably should aim at featuring as much as possible with actors from that community to increase its fame and ensure a long time presence in the industry. The p-values are 0 for the fame means and 0.057 for the fame increase means meaning that we cannot reject the null hypothesis in the later.
 
 Finally, we may be interested in wether actors within a community are better of playing with their community instead of reaching other horizons. For this, we perform a second matching where the treatment effect is to feature in a film with someone from your community with no regard on the fame of the two actors. Without any matching the effect is positive and statistiaclly significant which is promising and after matching on observable covariates, it turns out that the relation is still positive and statistically significant at the 0.05 level. As a conclusion, actors perform better and gain more fame when playing with actors from the same community.
 
-With this work done, the arc on feats ends, sadly, however any aspiring actor should aim at featuring with actors as famous as possible so as to bring light on their talent. Moreover, joining certain communities ensure more fame than others and featuring with actors from the same community provides more fame increases to any actor.
-
-# A look back: what did we learn? (REWORD)
-
-Our tale seems to have reached its end. After having travelled through the ages with historical data, and have explored the diverse worlds of genres and diversity, passing through the vast expanse of networks, we can now finally rest, sit back, and tell the story to our loved ones:
-
-Fame is multifaceted, oh yes she is! Although genetics may be of some help, if you're born a man for example, your ethnicity doesn't seem to play a role, especially today. Longevity is a tricky little friend to have. He may help you in the beginning, and in fact, he will show you the right way to go, but if you listen a little bit too closely to his adventurous speech of "trying new things!", then it may begin to hurt you. "The right dose of adventure", that's something we learned from him! It seems you can be around for a long time, but you need to be careful not to lose yourself, and always stay true to your roots. 
-
-<span style="color: red;">(Ajouter texte avec conclusions des analyses de graphes, personas, et pays d'origines)</span>
+With this work done, the arc on featuringss ends, sadly, however any aspiring actor should aim at featuring with actors as famous as possible so as to bring light on their talent. Moreover, joining certain communities ensure more fame than others and featuring with actors from the same community provides more fame increases to any actor.
 
 # A Look Back: Key Insights from Our Journey
 
-As our cinematic odyssey concludes, we pause to reflect on the rich tapestry of insights we've gathered. This journey through data has not only been a voyage through the history and mechanics of cinema but also a deeper understanding of what molds an actor's fame.
+As our cinematic odyssey concludes, we pause to reflect on the rich tapestry of insights we've gathered. This journey through data has not only been a voyage through the history and mechanics of cinema but also a deeper understanding of what molds an actor's fame. We have unraveled the multifaceted nature of fame in the cinematic world, revealing the delicate balance between personal attributes, career choices, and the overarching influence of the film industry.
 
-Fame, as we've discovered, is a complex character shaped by a myriad of factors. Gender, while historically influential, is gradually making way for a more inclusive landscape where ethnicity, intriguingly, seems to play a diminishing role in today's diverse cinematic world. Longevity, akin to a seasoned guide, offers its wisdom but warns against the perils of over-adventure. The ideal path, it seems, lies in a balanced exploration of new opportunities without straying too far from one's strengths.
+We've discovered that fame is a tapestry woven with threads of gender evolution, ethnic diversity, and the sagacity of longevity. Versatility in personas emerged as a strategic beacon, guiding actors towards broader appeal and deeper impact. Our exploration further highlighted the significance of global cinema dynamics, particularly the dominant narratives of Hollywood and the unique cultural imprints of Bollywood. The network of actor connections underscored the importance of strategic collaborations and community affiliations in enhancing an actor's journey to fame.
 
-Our delve into personas revealed the strategic advantage of versatility. Actors who skillfully navigate a spectrum of characters not only showcase their artistic range but also enhance their appeal and relevance across diverse audiences and eras. 
-
-From the global perspective, the dominance of American cinema stands undisputed, yet the rich cultural nuances of each country, from the golden eras of Japanese cinema to the distinctive vibrancy of Bollywood, contribute uniquely to the global narrative of fame.
-
-In essence, our exploration has illuminated the many faces of fame in the film industry. It's a story of evolution, adaptation, and the constant interplay between personal artistry and the broader cultural and historical forces at play. As we share these insights, we celebrate not just the data and its revelations, but also the enduring magic and influence of cinema in shaping our perceptions and dreams.
-
-
-## References
+In sum, our cinematic odyssey has painted a vivid picture of the acting profession as an intricate blend of individual talent, strategic choices, and the complex interplay of global cinematic trends. It's a narrative of how personal artistry, industry dynamics, and cultural contexts converge to shape the path to fame in the ever-evolving world of cinema.

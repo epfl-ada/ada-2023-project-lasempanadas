@@ -14,7 +14,7 @@ Together, we will dive into the realms of Hollywood, Bollywood, and beyond, unco
 
 ## The Setting: Historical Trends in Cinema
 
-Let's begin by immersing ourselves in the evolution of cinema. Our data, meticulously cleaned and merged, offers a panoramic view of the film industry's growth and transformation over the years. Before diving into the narrative, let's first grasp the landscape that our data reveals. 
+Let's begin by immersing ourselves in the evolution of cinema. Our data, which we meticulously cleaned and merged from all the aforementioned data sources, offers a panoramic view of the film industry's growth and transformation over the years. Before diving into the narrative, let's first grasp the landscape that our data reveals. 
 
 ### The Rise of Cinema: A Journey Through Time
 
@@ -30,9 +30,13 @@ The surge in the number of movies is mirrored by a parallel increase in the indu
 
 ### Genre Trends: The Popular Threads of Storytelling
 
-Our dataset has a very varied set of genres. In fact, there are over 350 different genre categories!
+Our dataset offers a bird's eye view of cinematic genres, showcasing an impressive array of over 350 distinct categories. This diversity reflects the rich tapestry of storytelling in the film industry. Let's take a closer look at the most prevalent genres.
 
-<span style="color: red;">Ajouter plotly des genres les plus populaires, pas besoin d'être compliqué.</span>
+<span style="color: red;">[Insert plotly visualization of the top 10 most popular genres.]</span>
+
+As the data reveals, Drama, Comedy, Romance, and Action Thrillers dominate the cinematic landscape. This aligns with popular audience preferences, suggesting that these genres have a broad, enduring appeal. Their prevalence speaks to universal themes and storytelling styles that resonate across cultures and time periods.
+
+An interesting observation is the significant presence of black-and-white movies within the dataset. This not only highlights the historical depth of our data but also provides a window into the evolution of the film medium. This genre analysis paints a vivid picture of the film industry's trends and shifts over the years. It underscores the dynamic nature of cinematic preferences and the industry's response to evolving tastes and societal changes.
 
 ### (ajouter analyse ici) + parler du nombre de genres (y'a un mec qui a joué 60 genres...)
 
@@ -54,20 +58,22 @@ In our tale, the characters are not just the protagonists of the movies but also
 
 ### Supporting Characters: The Personas
 
-| actor_name    | fameScore | persona | movie_name                               | release_date |
-|---------------|-----------|---------|------------------------------------------|--------------|
-| Gianni Russo  | 179.52    | 41.0    | The Godfather                            | 1972-03-15   |
-| Sofia Coppola | 148.63    | 15.0    | The Godfather Part II                    | 1974-12-12   |
-| Robert Webber | 145.13    | 18.0    | 12 Angry Men                             | 1957-04-10   |
-| Chin Han      | 139.77    | 35.0    | The Dark Knight                          | 2008-07-16   |
-| Hanna R. Hall | 139.07    | 2.0     | Forrest Gump                             | 1994-06-23   |
-| William Alland| 137.29    | 10.0    | Citizen Kane                             | 1941-05-01   |
-| Brigitte Helm | 131.34    | 34.0    | Metropolis                               | 1927-01-10   |
-| Danny Lloyd   | 131.29    | 46.0    | The Shining                              | 1980-05-23   |
-| Sala Baker    | 122.17    | 30.0    | The Lord of the Rings: The Fellowship... | 2001-12-10   |
-| Christopher Lloyd| 119.07 | 17.0    | One Flew Over the Cuckoo's Nest          | 1975-11-19   |
+| actor_name       | fameScore | persona | movie_name                   | release_date |
+|------------------|-----------|---------|------------------------------|--------------|
+| Marlon Brando    | 215.42    | 5.0     | The Godfather                | 1972-03-15   |
+| James Caan       | 206.97    | 2.0     | Cinderella Liberty           | 1973-01-01   |
+| Bob Gunton       | 199.79    | 18.0    | The Shawshank Redemption     | 1994-09-10   |
+| Morgan Freeman   | 195.00    | 9.0     | Outbreak                     | 1995-03-06   |
+| Diane Keaton     | 178.29    | 49.0    | Play It Again, Sam           | 1972-05-04   |
+| Robert Duvall    | 178.09    | 30.0    | The Great Northfield Minnesota Raid | 1972-05-12 |
+| Al Lettieri      | 172.93    | 41.0    | The Getaway                  | 1972-12-13   |
+| Heath Ledger     | 167.73    | 35.0    | The Dark Knight              | 2008-07-16   |
+| Larry Brandenburg| 166.31    | 29.0    | Daggers                      | 1994-09-18   |
+| Bruce Willis     | 164.93    | 10.0    | Color of Night               | 1994-08-19   |
 
-The personas, our supporting characters, play a pivotal role in the narrative. They represent the diverse roles and character stereotypes actors embody. Here, we introduce them with a visualization showing the most renowned actors for each persona. This preliminary glimpse sets the stage for a deeper analysis of their influence.
+The concept of personas in film, drawn from the 2013 paper "Learning Latent Personas of Film Characters," offers a fascinating lens through which we can view actors' roles. These personas encapsulate a range of character stereotypes and archetypes that actors bring to life on screen. Our table showcases a selection of renowned actors alongside their notable personas, fame scores, and corresponding movie roles. 
+
+This data doesn't just quantify their fame; it also reveals the breadth and depth of their acting range. For instance, the versatility of Marlon Brando in 'The Godfather' or the intense performance of Heath Ledger in 'The Dark Knight' highlight the varied personas actors adopt to captivate audiences.
 
 ### The Main Character: The Fame of Actors
 The central theme of our story is the *fame* of actors. But how do we quantify such an intangible concept? How can we assign a numerical value to an actor's popularity at any given point in their career?
@@ -135,7 +141,7 @@ Ethnic trends in fame showcase intriguing patterns:
 
 The relationship between fame and career length reveals a plateau after approximately 13-15 years. This graph also helped uncover the fun fact that some actors actually had a career spanning 80+ years, with a single one spanning 89 years! The actor in question is Milton Berle, born in 1908. A movie featuring a character played by him was released in 2003, one year after his death in 2002. Nevertheless, a hugely impressive longevity which is completely unmatched. 
 
-### Concluding Insights of Arc 1
+### Concluding Insights
 
 This first arc sheds light on historical trends in fame, the impact of diversity on success, and the complex interplay between fame and longevity. With these insights in hand, we are now poised to delve deeper into the nuances of the fame score and its implications in the next arc of our story.
 
@@ -150,29 +156,37 @@ In our continued exploration, we navigate the diverse landscape of cinema. Is th
 - **Movie Diversity:** The total number of movies an actor has been a part of.
 - **Persona Diversity:** The variety of different character types an actor has portrayed. 
 
-#### Genre Versatility: A Path to Fame?
+### Genre Versatility: A Path to Fame?
 
 <span style="color: red;">fame score/genre div from genre_analysis.ipynb. Rajouter titre, peut-etre ajouter des confidence intervals comme simon?</span>
 
 Somewhat surprisingly, our data seems to indicate that being a "genreventurer" correlates positively with fame! The median fame score seems to peak at a genre diversity of around 30. This suggests that actors benefit from branching out into various genres, seemingly challenging the notion of sticking to a single type of role. There is even an actor, <span style="color: red;">get actor name who played 60 genres</span>, the most adventurous of us all, who has played in movies with over 60 different genres! That means that he has played in over 1/6th of all recorded genres in our dataset (which as a reminder spans over 100 years and includes several tens of thousands of movies!).
 
-#### Movie Diversity: Quality Over Quantity?
+### Movie Diversity: Quality Over Quantity?
 
 <span style="color: red;">fame score/movie div from genre_analysis.ipynb. Rajouter titre. peut-etre ajouter des confidence intervals comme simon</span>
 
 Contrary to gerne diversity, it seems like being a "movieventurer" is not a great idea. While we may get good results initially, it appears that an increase in movie diversity has diminsihing returns on fame. This could be attributed to the compromise between quantity and quality or the involvement in smaller-scale projects with limited reach. 
 
-#### Reconciling Genre and Movie Diversity
+### Reconciling Genre and Movie Diversity
 
 <span style="color: red;">mettre deuxième graphique plotly d'alex ici, avec genre diversity en x axis</span>
 
-When isolating movie diversity, a very interesting pattern emerges: actors who focus on fewer genres within their filmography tend to have higher fame scores. This suggests that establishing a niche and excelling within it, and thus being possibly hired for movies with more prestige, budget, or more famous colleagues, can be more beneficial than a scattershot approach across many genres. 
+When isolating movie diversity, a very interesting pattern emerges: actors who focus on more genres within their filmography tend to have higher fame scores. This suggests that diversifying the types of movies you play, thus being able to appeal to a wider audience, and possibly get hired for movies with more budget, or possibly more famous colleagues, is a good move for your career! Indeed, this trend seems intact up until very high numbers of movies played, where the data becomes more sparse, and less generalizable.
 
-### Persona focus (changer titre)
+The aforementioned personas, which represent popular character tropes or roles, are a very interesting piece of information. We decided to analyse the persona diversity in order to better understand how 
+
+### The Impact of Persona Diversity
 
 <span style="color: red;">insert persona analysis here</span>
 
-Persona 
+Our findings on persona diversity unveil a compelling narrative: actors who diversify their character types tend to have higher fame scores. This suggests that the ability to adapt to various personas is not just a testament to an actor's range and skill but also a strategic career move that can enhance their popularity and fame. 
+
+Actors who successfully navigate different personas appear to create a more lasting and impactful presence in the industry. This versatility allows them to connect with a wider audience, participate in a broader range of projects, and potentially collaborate with more renowned directors and co-stars. 
+
+### Concluding Insights
+
+In essence, our exploration in this arc reveals that versatility, be it in genre choice or persona adoption, plays a significant role in an actor's fame trajectory. While there is a delicate balance between quality and quantity, our analysis suggests that diversifying one's career with thoughtful choices in genres and roles can lead to greater acclaim and recognition.
 
 ## Arc 3. The influence of country of origin
 
@@ -231,41 +245,47 @@ The Chi-Square test results reveal a strong correlation between actor ethnicity 
 
 This historical perspective unveils unique 'golden ages' in cinema. Japanese actors, for instance, reached peak fame during the early phases of its "Japanese economic miracle," reflecting the country's booming post-war economy. The 1920s marked a high point for Indian actors, while French cinema shows a notable decline over time. However, caution is warranted when interpreting older data due to its relative scarcity and potential inaccuracies.
 
-As we conclude this arc, we're reminded of cinema's dynamic nature and its reflection of broader social and economic landscapes. These findings illustrate how fame in the film industry is not only a result of individual talent and effort but also deeply influenced by the cultural, historical, and economic context of each country.
+### Concluding Insights: The Global Fabric of Cinematic Fame
 
-## Arc 4. What about networks?
+As this arc of our analysis draws to a close, several key insights into the influence of country of origin on actors' fame crystallize:
+
+1. **American Dominance:** The sustained high fame scores of American actors underscore the overpowering presence of Hollywood in the global cinematic landscape, reaffirming its role as a central hub of movie production and star-making.
+
+2. **Ethnic Casting Patterns:** The Chi-Square analysis illuminates strong ties between actors' ethnicity and the country of production. This underscores the diversity in casting practices across different film industries, with American cinema showing a broader ethnic range than others.
+
+3. **Historical Contexts:** The shifts in fame scores across different eras, such as the peak periods for Japanese and Indian actors, reveal how cinema's evolution is intertwined with historical and economic developments in each country.
+
+This arc emphasizes the intricate interplay between fame, culture, and geography in the film industry, illustrating how an actor's success is deeply rooted in the broader socio-cultural fabric of their country of origin.
+
+## Arc 4. What about featurings?
 
 As we have been strolling through our dataset, we have looked at a lot of different metrics, and we have explored a lot of different angles. However, there is one thing that we have thus far not mentioned, which is absolutely key to understanding careers, and fame: people! So far, all of our analyses have been network-agnostic, but we know this is not how the real world works. Our next, and final arc, will bring us through many hardships, as the plots can get pretty gnarly over there! However, we think that will also teach us a whole lot, and could be one of the keys to unlocking the secrets to fame!
 
-Let's quickly get into it, jumping straight into our first topic: languages. 
+Let's quickly get into it, jumping straight into our first topic: featurings with famous actors. 
 
 ### Connections: an overview
 
-Our first order of business is to get a good idea of what the situation is. What is this strange new world that we're setting foot in? The first approach that we tried was to look at the graph of connections between actors (a link being defined as a movie played together), color-coded by language:
+Our first order of business is to get a good idea of what the situation is. What is this strange new world that we're setting foot in? The first approach that we tried was to look at the connections between actors (a link being defined as a movie played together):
+The effect, we would like to show light on is wether featuring with a famous actor improves your own fame or not. This is an information of high value for any actro in need of recognition ! The easy approach simply consist of finding the 100 most famous actors for each year and split all our featuring connection in two groups. The first group -control features in films with lesser known actors than the second one -treated. We observe that the treated group has a fame increase of in average 5 times the one of the control group, which is huge. This effect is statistically significant as it is backed by a t-test giving a p-value of 0. You might think that this is enough for an actor but we will dig deeper in the data as matching should be performed to ensure a real effect and the absense of confounder effect under the naive model. Actors may be releived to hear that after matching, the effect is still present yet less strong, but more importantly statistically significant with a p-value of 7e-10.
+<span style="color: red;">graph feats after matching</span>
 
+Then, we may look at feats from another point of view. That is network analysis, opening a whole new world of possibilities. We construct a network consisting of actors as nodes and films as edges. The main component of the graph is strangely composed of two main clusters. Our initial thought are that these represent two worlds of cinema : Hollywood and Bollywood. Indeed, seeing the following figure, we observe that actors whose languages are spoken in India constitutes the smaller cluster while English speaking actors are in the other cluster with some French speaking ones far from home. 
 <span style="color: red;">network by language plot de remi. Idealement ajouter les autres components non connectés pour montrer les distributions de tout notre dataset, et de pouvoir en dire plus</span>
 
-We loved this graph, as it quite clearly shows that the cinema industry, for better or for worst, is very segregated between languages. There is very little collaboration between what is most likely Hollywood and Bollywood, as evidenced by the very few weak links between the two communities.
+This separation in the network poses a problem as for computing centralities, actors bonding Bollywood and Hollywood will be assigned the highest centralities, especially betweenness centrality. As we cannot ensure that such actors are famous but instead are well placed in the network,  we solve this issue by restricting ourselves to Hollywood with only English speaking actors.
+<span style="color: red;">graph betweeness bolly holly</span>
 
-As a next step, we are very interested in looking at centrality. Due to the nature of our network, the centrality would be very heavily biased toward those weak links between Hollywood and Bollywood, which would also hold no guarantees with respect to their fame. <span style="color: red;">ajouter analyse des weak links?</span>
+Then we compute the betweenness, Katz and closeness centralities of actors in Hollywood. No surprise, famus actors such as Robert De Niro, Morgan Freeman, Matt Damon, Christopher Walken, etc are assigned the highest centralities. This might suggest a correlation between fame and centrality, which intuitivey makes quite some sense. Yet, performing a correlation analysis between fames and centralities in the correlation matrix hereunder, it seems that fame is not especially linked with centrality. 
+<span style="color: red;">correlation matrix fame centrality</span>
 
-Having confirmed that the weak links between Hollywood and Bollywood are not necessarily special in our analysis of their fame score, we thus decided to focus on the actors of English movies from here on out. 
+It could be then that even Hollywood is composed of communities where actors bonding such may have bigger centralities. Using the Louvain method, which groups together nodes so as to maximize cluster coefficients for nodes, we may extract several communities. Those communities are linked by weak ties as shown in the subsequent figure. Some Louvain communities do share many connections, yet others do not seem to make film with many other communities. This is becoming interesting for any actor willing to join one as they might not share the same fame distribution, some may me composed of established actors while other be carreer boosters. The communities seem well formed as the cast of Harry Potter saga are all in the same community.
+<span style="color: red;">louvain weak ties</span>
 
-### Centrality: is it fame?
+The following plots show that communities do not all share the same average of fame score. Indeed some are composed of more famous actors while others seem less interesting for an unknown actor willing to increase its fame fast. This bar analysis with confidence intervals is backed by oneway ANOVA testing where we test if the mean of fame and fame increase are the same for each Louvain community. Using such method, it turns out that fames in communities do not share the same means. Thus, an already somewhat famous actor probably should aim at featuring as much as possible with actors from that community to increase its fame and ensure a long time presence in the industry. The p-values are 0 for the fame means and 0.057 for the fame increase means meaning that we cannot reject the null hypothesis in the later.
 
+Finally, we may be interested in wether actors within a community are better of playing with their community instead of reaching other horizons. For this, we perform a second matching where the treatment effect is to feature in a film with someone from your community with no regard on the fame of the two actors. Without any matching the effect is positive and statistiaclly significant which is promising and after matching on observable covariates, it turns out that the relation is still positive and statistically significant at the 0.05 level. As a conclusion, actors perform better and gain more fame when playing with actors from the same community.
 
-### Making communities
-
-
-### Who are the most famous actors in history?
-
-Now that we better understand the tales of acting careers, let's take a look back. A look back at all the previous actors, and let's see which of them were the most famous, the true icons of their time. Below is the evolution of the top 10 most famous actors through the ages.
-
-<span style="color: red;">Ajouter raceplot de simon, mais changer (si possible): les barres bougent physiquement et pas juste les couleurs, pour voir la diff entre les années plus facilement. si possible, mettre les noms à gauche des barres pour pas qu'ils bougent tout le temps.</span>
-
-Just for fun, we can also look at the 5 actors with the highest fame scores of all time. Here they are:
-
-<span style="color: red;">5 acteurs les plus connus, avec leur nom, leur fame score, et l'année du pic</span>
+With this work done, the arc on feats ends, sadly, however any aspiring actor should aim at featuring with actors as famous as possible so as to bring light on their talent. Moreover, joining certain communities ensure more fame than others and featuring with actors from the same community provides more fame increases to any actor.
 
 # A look back: what did we learn? (REWORD)
 
@@ -274,5 +294,18 @@ Our tale seems to have reached its end. After having travelled through the ages 
 Fame is multifaceted, oh yes she is! Although genetics may be of some help, if you're born a man for example, your ethnicity doesn't seem to play a role, especially today. Longevity is a tricky little friend to have. He may help you in the beginning, and in fact, he will show you the right way to go, but if you listen a little bit too closely to his adventurous speech of "trying new things!", then it may begin to hurt you. "The right dose of adventure", that's something we learned from him! It seems you can be around for a long time, but you need to be careful not to lose yourself, and always stay true to your roots. 
 
 <span style="color: red;">(Ajouter texte avec conclusions des analyses de graphes, personas, et pays d'origines)</span>
+
+# A Look Back: Key Insights from Our Journey
+
+As our cinematic odyssey concludes, we pause to reflect on the rich tapestry of insights we've gathered. This journey through data has not only been a voyage through the history and mechanics of cinema but also a deeper understanding of what molds an actor's fame.
+
+Fame, as we've discovered, is a complex character shaped by a myriad of factors. Gender, while historically influential, is gradually making way for a more inclusive landscape where ethnicity, intriguingly, seems to play a diminishing role in today's diverse cinematic world. Longevity, akin to a seasoned guide, offers its wisdom but warns against the perils of over-adventure. The ideal path, it seems, lies in a balanced exploration of new opportunities without straying too far from one's strengths.
+
+Our delve into personas revealed the strategic advantage of versatility. Actors who skillfully navigate a spectrum of characters not only showcase their artistic range but also enhance their appeal and relevance across diverse audiences and eras. 
+
+From the global perspective, the dominance of American cinema stands undisputed, yet the rich cultural nuances of each country, from the golden eras of Japanese cinema to the distinctive vibrancy of Bollywood, contribute uniquely to the global narrative of fame.
+
+In essence, our exploration has illuminated the many faces of fame in the film industry. It's a story of evolution, adaptation, and the constant interplay between personal artistry and the broader cultural and historical forces at play. As we share these insights, we celebrate not just the data and its revelations, but also the enduring magic and influence of cinema in shaping our perceptions and dreams.
+
 
 ## References
